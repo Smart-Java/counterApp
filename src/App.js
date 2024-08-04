@@ -1,23 +1,17 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState } from "react";
+import './components/counter_label.js';
+import CounterLabel from './components/counter_label.js';
+import CounterButton from './components/counter_button.js';
+
 
 function App() {
+  const [currentCounter, setCounter] = useState(0);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CounterLabel currentCounter={currentCounter}></CounterLabel>
+      <CounterButton currentCounter={currentCounter} setCounter={setCounter} forIncrement={true}></CounterButton>
+      <CounterButton currentCounter={currentCounter} setCounter={setCounter} forIncrement={false}></CounterButton>
     </div>
   );
 }
